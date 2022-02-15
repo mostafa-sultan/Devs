@@ -21,11 +21,11 @@ const Home = (props) => {
     // const [cardData, setCardData] = useState(data[0].category[params.category]);
 
     useEffect(() => {
-        // console.log(window.location.pathname.substring(1));
+        console.log(window.location.hash.substring(2));
         axios.get("https://raw.githubusercontent.com/mostafa-sultan/slums/main/data/images/md/data.json")
             .then(function (response) {
                 console.log(response.data);
-                setCardData(response.data[0].category[window.location.pathname.substring(1)]);
+                setCardData(response.data[0].category[window.location.hash.substring(2)]);
             })
             .catch(function (error) {
                 console.log(error);
@@ -47,7 +47,7 @@ const Home = (props) => {
                             </div>
                         </div>
                     </div>
-                    <h1>do your best🙂</h1>
+                    <h1>do your best</h1>
                     <div className="row">
                         {/* {cardData.map(data => (<Card key={data.id} data={data} />))} */}
                         {cardData ? CarsShow(cardData) : <h1>Loding ...</h1>}
@@ -69,7 +69,7 @@ const Home = (props) => {
 
 
 const ActiveSec = () => {
-    switch (window.location.pathname.substring(1)) {
+    switch (window.location.hash.substring(2)) {
         case "javascript":
             return (
                 <>

@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,HashRouter
 } from "react-router-dom";
 import About from './pages/about/About';
 import Home from './pages/home/Home';
@@ -13,9 +13,10 @@ import Redirect from './pages/Redirect';
 import Tutorial from './pages/tutorial/Tutorial';
 
 ReactDOM.render(
-  <BrowserRouter>
+   
+  <HashRouter>
     <Routes>
-      <Route path="/javascript" element={<Home />} />
+      <Route exact path="/javascript" element={<Home />} />
       <Route path="/nodejs" element={<Home />} />
       <Route path="/react" element={<Home />} />
       <Route path="/reactnative" element={<Home />} />
@@ -26,7 +27,7 @@ ReactDOM.render(
       {/* <Route path="/javascript/" element={<Navigate  to="/javascript" />  }/>   */}
       <Route path="/tutorial/:content" element={<Tutorial />} />
       <Route path="/about" element={<About />} />
-      <Route path="/" element={<Redirect />} />
+      <Route exact path="/" element={<Redirect />} />
 
       <Route path="*" element={<Redirect />} />
 
@@ -37,7 +38,7 @@ ReactDOM.render(
 
     </Routes>
 
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById('root')
 );
 
