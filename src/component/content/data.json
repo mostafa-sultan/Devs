@@ -1,0 +1,8 @@
+[
+    {
+      "id": 1,
+      "name": "Vigo",
+      "picture": "./static/images/vigo.png",
+      "cont": "# email-system-nodejs\n \n<!-- ABOUT THE PROJECT -->\n## About The Project\n\nemail system like gmail yahoo ..\n\nfeatures:\n* login\n* registration\n* send email with attached fiel\n* downlode attached file with email\n* replay the email \n\n## Technologies\n\n* node.js\n* express js\n* ejs\n* javascript\n* mongose\n* html\n* css\n* multer\n* passport js\n \n### screenshot\n[smile]: smile.png\n{: height=\"36px\" width=\"36px\"}\n![image info](https://upload.wikimedia.org/wikipedia/commons/3/3c/IMG_logo_%282017%29.svg){ width=50 }\n\n<img src=\"mail%20screen/FireShot%20Capture%20030%20-%20projact%20mail%20-%20localhost.png\" alt=\"Logo\" width=\"800\" >\n  <img src=\"mail%20screen/FireShot%20Capture%20033%20-%20projact%20mail%20-%20localhost.png\" alt=\"Logo\" width=\"800\" >\n  <img src=\"mail%20screen/FireShot%20Capture%20039%20-%20projact%20mail%20-%20localhost.png\" alt=\"Logo\" width=\"800\"  >\n<img src=\"mail%20screen/FireShot%20Capture%20042%20-%20projact%20mail%20-%20localhost.png\" alt=\"Logo\" width=\"800\"  > \n"
+    }
+]
