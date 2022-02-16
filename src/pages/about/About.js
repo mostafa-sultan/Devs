@@ -52,10 +52,10 @@ const About = () => {
               I'm a full stack developer with more than 1 year of experience.<br />
               Studying computer science in faculty of computers and information.<br />
               I work mainly with javascript stack and love writing code with python and java.<br />
-              Publish NPM packages here<br />
-              Publish apps in Google play here<br />
-              Publish technical articles on this blog<br />
-              Make tech videos on my YouTube channel Devs<br />
+              Publish NPM packages  <br />
+              Publish apps in Google play  <br />
+              Publish technical articles  <br />
+              Make tech videos on my YouTube channel  <br />
             </p>
 
             <h5 className="font-weight-normal">Experience</h5>

@@ -20,7 +20,7 @@ export default function Navbar() {
         <Link className="nav-link" to="/about">About</Link>
       </li> */}
             <li className="nav-item active">
-              <a className="nav-link" href="https://www.linkedin.com/in/mostafa-sultan/" target="_blank">Contact</a>
+              <a className="nav-link" href="https://www.linkedin.com/in/mostafa-sultan/" target="_blank">Linkedin</a>
             </li>
           </ul>
 

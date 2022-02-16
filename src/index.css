@@ -8,6 +8,9 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: revert;
+  font-weight: inherit;
+  color: #c9d1d9 !important; 
+  font-size:1.4em !important
+
 }

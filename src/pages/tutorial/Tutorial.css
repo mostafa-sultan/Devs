@@ -4,22 +4,17 @@
         background: #121212;
     }
 
-
-
-    /* selected link */
+ 
     a:active {
         color: rgba(190, 223, 201, 0.705);
     }
 }
 
 pre {
-    background-color: darkslategray;
+    background-color: rgb(8, 0, 5);
 }
 
-pre code {
-    color: white;
-}
-
+ 
 
 
 img {
@@ -27,11 +22,16 @@ img {
     max-width: 100%;
     height: auto;
 }
-
+p{
+    color:rgb(240, 231, 231);
+    font-weight:bold;
+    font-size:1.2em
+}
+ 
 a {
     text-decoration: none;
-    font-family: sytem-ui;
-    color: rgb(88, 170, 236);
+    /* font-family:; */
+    color: rgb(111, 194, 241);
     /* font-size: 13pt; */
 }
 
@@ -51,10 +51,12 @@ a:hover {
     -moz-user-select: none;
     user-select: none;
 }
-
+ul{
+    font-size:1.3em;
+}
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {
-        font-size: 3.5rem;
+        font-size: 4.5rem;
     }
 }
  
