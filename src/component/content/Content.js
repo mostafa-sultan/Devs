@@ -38,7 +38,9 @@ const Content = () => {
   if (loading) {
     return (
       <div className="content-loading">
+        <div className="loading-spinner"></div>
         <h2>Loading content...</h2>
+        <p>Please wait while we fetch the article</p>
       </div>
     );
   }
@@ -46,16 +48,22 @@ const Content = () => {
   if (error) {
     return (
       <div className="content-error">
+        <div className="error-icon">
+          <i className="fas fa-exclamation-triangle"></i>
+        </div>
         <h2>{error}</h2>
+        <p>Please try refreshing the page or check your connection</p>
       </div>
     );
   }
 
   return (
     <div className="content-wrapper">
-      <ReactMarkdown className="markdown-content">
-        {data}
-      </ReactMarkdown>
+      <article className="markdown-content">
+        <ReactMarkdown>
+          {data}
+        </ReactMarkdown>
+      </article>
     </div>
   );
 }
