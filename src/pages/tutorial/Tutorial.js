@@ -19,9 +19,9 @@ const recomendSec = () => {
             <div className="p-3">
                 <h4 className="fst-italic">Follow us</h4>
                 <ol className="list-unstyled">
-                    <li><a href="https://github.com/mostafa-sultan" target="_blank">GitHub</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="https://www.quora.com/profile/Mostafa-Soltan-3/" target="_blank">quora</a></li>
+                    <li><a href="https://github.com/mostafa-sultan" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                    <li><a href="https://www.quora.com/profile/Mostafa-Soltan-3/" target="_blank" rel="noopener noreferrer">quora</a></li>
                 </ol>
             </div>
         </div>

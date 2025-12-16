@@ -42,7 +42,7 @@ export default function Navbar() {
           <span></span>
         </button>
 
-        <div className="nav-menu-wrapper">
+        <div className={`nav-menu-wrapper ${mobileMenuOpen ? 'active' : ''}`}>
           <ul className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
             <li>
               <Link 
@@ -61,7 +61,7 @@ export default function Navbar() {
                 onClick={closeMenu}
               >
                 <i className="fas fa-user"></i>
-                <span>CV</span>
+                <span>About</span>
               </Link>
             </li>
           </ul>

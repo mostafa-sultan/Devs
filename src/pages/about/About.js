@@ -4,63 +4,152 @@ import './About.css';
 
 const About = () => {
   const skills = [
-    { name: 'JavaScript', level: 85 },
-    { name: 'Node.js', level: 75 },
-    { name: 'React', level: 77 },
-    { name: 'React Native', level: 70 },
-    { name: 'Data Structures & Algorithms', level: 65 },
-    { name: 'Databases (MongoDB, MySQL)', level: 65 },
-    { name: 'Backend Development', level: 77 },
-    { name: 'Frontend Development', level: 65 },
-    { name: 'Python', level: 70 },
-    { name: 'Java', level: 65 },
+    { name: 'JavaScript', level: 90 },
+    { name: 'NodeJS', level: 85 },
+    { name: 'ReactJS', level: 85 },
+    { name: 'React Native', level: 90 },
+    { name: 'Express JS', level: 85 },
+    { name: 'Data Structures & Algorithms', level: 80 },
+    { name: 'Problem Solving', level: 85 },
+    { name: 'MongoDB', level: 80 },
+    { name: 'MySQL', level: 75 },
+    { name: 'RESTful API', level: 85 },
+    { name: 'Android SDK', level: 75 },
   ];
 
   const experiences = [
     {
-      title: 'Software Engineer',
+      title: 'Mobile Developer with React Native',
+      company: 'Ejada',
+      period: 'Jul 2024 – Present',
+      type: 'Full Time',
+      description: [
+        'Develop and maintain the "Qaema" ERP application for AL-Rajhi Bank using React Native, ensuring smooth functionality, fixing bugs, and enhancing modules for an optimized user experience.',
+        'Integrate third-party APIs to streamline data flow and functionality',
+        'Manage deployment processes on Google Play and the App Store, ensuring compliance with platform guidelines and timely releases.',
+        'Provide a user-friendly, mobile-first interface to streamline workflows',
+        'Ensure seamless mobile performance, along with managing app updates and releases, contributing to system reliability and user satisfaction.'
+      ],
+      techStack: ['React Native', 'JavaScript', 'Android', 'iOS', 'API Integration', 'Figma', 'Google Play', 'App Store']
+    },
+    {
+      title: 'Mobile Developer with React Native',
+      company: 'Tjaara',
+      period: 'Jan 2024 – Jul 2024',
+      type: 'Full Time',
+      description: [
+        'Develop and maintain user-friendly eCommerce storefronts on a no-code platform',
+        'Design and build reusable React Native components',
+        'Enable traders to establish their online presence, expand their reach, and drive business growth.',
+        'Deliver seamless and engaging mobile shopping experiences, fostering customer satisfaction and loyalty.'
+      ],
+      techStack: ['React Native', 'JavaScript', 'Android', 'iOS', 'Figma', 'Cross-platform']
+    },
+    {
+      title: 'Mobile Developer with React Native',
+      company: 'Fast Go',
+      period: 'Feb 2024 - Feb 2024',
+      type: 'Freelancer',
+      description: [
+        'Enhanced FastGo\'s mobile app through comprehensive testing and optimization.',
+        'Resolved request delivery issues, ensuring seamless user experience.',
+        'Boosted app performance, improving speed and responsiveness.'
+      ],
+      techStack: ['React Native', 'JavaScript', 'Android', 'iOS']
+    },
+    {
+      title: 'Data Entry Specialist and Computer Hardware Technician',
+      company: 'Egypt Army',
+      period: 'Oct 2022 - Dec 2023',
+      type: 'Full Time',
+      description: [
+        'Maintaining computer systems, and troubleshooting network issues.'
+      ],
+      techStack: []
+    },
+    {
+      title: 'Full Stack JavaScript',
+      company: 'Finitic',
+      period: 'Mar 2022 - Aug 2022',
+      type: 'Full Time',
+      description: [
+        'Collaborated with a cross-functional team to design, develop, and implement a robust and scalable forex trading platform using agile methodologies.',
+        'Owned the development and delivery of key platform features, including user permissions management and customer order monitoring and execution systems.',
+        'Passionate about fintech and financial technologies.',
+        'Expertise in full-stack development using Node.js, Express, Reactjs, Redux, Saga, MongoDB',
+        'Agile development methodologies experience.',
+        'Excellent problem-solving and analytical skills.'
+      ],
+      techStack: ['Reactjs', 'Node.js', 'Express', 'Redux', 'Saga', 'MongoDB', 'Jest']
+    },
+    {
+      title: 'Full Stack JavaScript',
       company: 'Phantom Technologies',
-      period: 'Current',
-      description: 'Developed e-commerce automation bots and web scraping solutions. Built automated processes for internet-based e-commerce operations.',
-      techStack: ['Node.js', 'Express', 'Java', 'OkHttp', 'Web Scraping', 'MongoDB', 'Playwright', 'Automation', 'React.js']
-    },
-    {
-      title: 'Intern',
-      company: 'MegaAnalytics',
-      period: 'Previous',
-      description: 'Implemented authentication systems with JWT, CRUD services, and admin panels for website management including posts and users management.',
-      techStack: ['JavaScript', 'PHP', 'Laravel', 'MySQL', 'MongoDB']
-    },
-    {
-      title: 'Summer Training',
-      company: 'ITI - Menoufia Branch',
-      period: 'Previous',
-      description: 'Completed 120 credit hours training program covering web development fundamentals and backend technologies.',
-      techStack: ['JavaScript', 'PHP', 'Laravel', 'HTML', 'CSS']
+      period: 'Feb 2021 - Aug 2021',
+      type: 'Full Time',
+      description: [
+        'Developed and maintained automated bots using JavaScript techniques to extract product information, pricing, and availability from e-commerce websites.',
+        'Implemented price comparison algorithms to identify the best deals for customers.',
+        'Automated the purchase process using e-commerce APIs and Playwright automation tools.',
+        'Experience with e-commerce platforms and APIs.',
+        'Strong analytical and problem-solving skills.'
+      ],
+      techStack: ['Node.js', 'Express', 'Java', 'Okhttp', 'Web Scraping', 'MongoDB', 'Playwright', 'Automation', 'Reactjs', 'Redux']
     }
   ];
 
   const projects = [
     {
-      title: 'Email System (Node.js)',
-      description: 'Full-featured email system similar to Gmail/Yahoo with authentication, email sending/receiving, file attachments, and email replies.',
-      techStack: ['Node.js', 'Express.js', 'EJS', 'MongoDB', 'Multer', 'Passport.js'],
-      features: ['User Authentication & Registration', 'Send/Receive Emails', 'File Attachments', 'Download Attachments', 'Email Replies']
+      title: 'Qaema – قائمه',
+      description: 'Qaema is a comprehensive accounting software designed to streamline financial management for businesses of all sizes. Whether you are a small business owner, freelancer, or large enterprise, Qaema provides the tools you need to manage your finances efficiently in one place.',
+      techStack: ['React Native', 'Redux', 'Java Spring', 'SQL'],
+      links: [
+        { name: 'App Store', url: 'https://apps.apple.com/eg/app/qaema-accounting-system/id6544789609', icon: 'fab fa-apple' }
+      ]
     },
     {
-      title: 'Face Recognition System',
-      description: 'RESTful API server for face recognition using TensorFlow and Face API.',
-      techStack: ['Node.js', 'TensorFlow', 'Face API', 'REST API']
+      title: 'FastGo',
+      description: 'FastGo is Turkey\'s innovative electric vehicle charging station network.',
+      techStack: ['React Native', 'Redux', 'Nodejs', 'MongoDB'],
+      links: [
+        { name: 'Google Play', url: 'https://play.google.com/store/apps/details?id=tr.com.fastgo.app', icon: 'fab fa-google-play' }
+      ]
     },
     {
-      title: 'NPM Packages',
-      description: 'Published multiple NPM packages for the developer community.',
-      techStack: ['JavaScript', 'Node.js']
+      title: 'Face Recognition System NodeJS',
+      description: 'Implementation of face recognition server as Rest Api by tensorflow.js and face Api',
+      techStack: ['Node.js', 'TensorFlow.js', 'Face API', 'REST API']
     },
     {
-      title: 'Mobile Applications',
-      description: 'Published applications on Google Play Store.',
-      techStack: ['React Native', 'Android']
+      title: 'Alzheimer AI Assistant',
+      description: 'Our project consists of smart glasses that contain a camera and headphones. The people close to the patient are stored in the application, and when it is difficult to identify the person, the camera in the glasses takes a picture, identifies the person and tells him. (Awarded first place for all graduate projects)',
+      techStack: ['React Native', 'Redux', 'Nodejs', 'MongoDB', 'TensorFlow.js']
+    }
+  ];
+
+  const education = [
+    {
+      degree: 'B.S.E. in Computer Science Engineering with Minor in Mathematics',
+      institution: 'Menoufia University',
+      period: '2018 – 2022',
+      field: 'Computer Science'
+    },
+    {
+      degree: 'Summer Training Certificate',
+      institution: 'ITI - Menoufia Branch',
+      period: 'Aug 2020 – Sep 2020',
+      description: 'Summer training in ITI Menoufia Branch, completed 120 credit hours (JavaScript, PHP, Laravel, HTML, CSS)'
+    }
+  ];
+
+  const volunteering = [
+    {
+      title: 'Development Team in Compiler Community',
+      description: 'Student Activity in my College. Working to help students improve their skills and learn technologies.'
+    },
+    {
+      title: 'Handmade team Alef Community',
+      description: 'Student Activity in my College. Make fun events and trips and help desk for students.'
     }
   ];
 
@@ -78,12 +167,16 @@ const About = () => {
                 </div>
               </div>
               <div className="col-lg-8 col-md-7">
-                <h1 className="cv-name">Mostafa Sultan</h1>
-                <h3 className="cv-title">Full Stack Software Engineer</h3>
+                <h1 className="cv-name">Mustafa Sophy Sultan</h1>
+                <h3 className="cv-title">Mobile Developer & Full Stack JavaScript Developer</h3>
                 <div className="cv-contact-info">
                   <div className="contact-item">
                     <i className="fas fa-envelope"></i>
-                    <a href="mailto:mostafasolatn82@gmail.com">mostafasolatn82@gmail.com</a>
+                    <a href="mailto:mostafasultandev@gmail.com">mostafasultandev@gmail.com</a>
+                  </div>
+                  <div className="contact-item">
+                    <i className="fas fa-phone"></i>
+                    <a href="tel:+201066918430">+201066918430</a>
                   </div>
                   <div className="contact-item">
                     <i className="fas fa-map-marker-alt"></i>
@@ -91,15 +184,31 @@ const About = () => {
                   </div>
                   <div className="contact-item">
                     <i className="fab fa-linkedin"></i>
-                    <a href="https://www.linkedin.com/in/mostafa-sultan/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+                    <a href="https://www.linkedin.com/in/mostafa-sultan/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                   </div>
                   <div className="contact-item">
                     <i className="fab fa-github"></i>
-                    <a href="https://github.com/mostafa-sultan/" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+                    <a href="https://github.com/mostafa-sultan/" target="_blank" rel="noopener noreferrer">GitHub</a>
                   </div>
                   <div className="contact-item">
                     <i className="fab fa-google-play"></i>
-                    <a href="https://play.google.com/store/apps/developer?id=Mostafa+Soltan" target="_blank" rel="noopener noreferrer">Google Play</a>
+                    <a href="https://play.google.com/store/apps/developer?id=neotek&hl=ar" target="_blank" rel="noopener noreferrer">Google Play</a>
+                  </div>
+                  <div className="contact-item">
+                    <i className="fab fa-apple"></i>
+                    <a href="https://apps.apple.com/eg/app/qaema-accounting-system/id6544789609" target="_blank" rel="noopener noreferrer">App Store</a>
+                  </div>
+                  <div className="contact-item">
+                    <i className="fab fa-npm"></i>
+                    <a href="https://www.npmjs.com/~mostafa-sultan" target="_blank" rel="noopener noreferrer">NPM Packages</a>
+                  </div>
+                  <div className="contact-item">
+                    <i className="fas fa-blog"></i>
+                    <span>Blog</span>
+                  </div>
+                  <div className="contact-item">
+                    <i className="fab fa-youtube"></i>
+                    <a href="https://www.youtube.com/@mostafa-sultan7" target="_blank" rel="noopener noreferrer">YouTube</a>
                   </div>
                 </div>
               </div>
@@ -107,16 +216,15 @@ const About = () => {
           </div>
 
           {/* Summary Section */}
-          <section className="cv-section">
+          <section className="cv-section summary-section">
             <h2 className="section-title">
               <i className="fas fa-user"></i> Professional Summary
             </h2>
             <div className="section-content">
               <p className="summary-text">
-                Full stack developer with over 1 year of professional experience specializing in JavaScript ecosystem. 
-                Currently studying Computer Science at the Faculty of Computers and Information. Passionate about building 
-                scalable web applications and automation solutions. Active contributor to open source, published NPM packages, 
-                mobile applications on Google Play, technical articles, and educational tech videos on YouTube.
+                I am a software developer specialized in web and mobile application development using JavaScript. 
+                I believe in the power of technology to transform ideas into practical solutions. I contribute to the tech community 
+                by publishing NPM packages, apps on Google Play and App Store, technical articles on my blog, and educational tech videos on my YouTube channel.
               </p>
             </div>
           </section>
@@ -130,16 +238,30 @@ const About = () => {
               {experiences.map((exp, index) => (
                 <div key={index} className="experience-item">
                   <div className="experience-header">
-                    <h3 className="experience-title">{exp.title}</h3>
-                    <span className="experience-company">{exp.company}</span>
+                    <div>
+                      <h3 className="experience-title">{exp.title}</h3>
+                      <span className="experience-company">{exp.company}</span>
+                      {exp.type && <span className="experience-type">{exp.type}</span>}
+                    </div>
                     <span className="experience-period">{exp.period}</span>
                   </div>
-                  <p className="experience-description">{exp.description}</p>
-                  <div className="tech-stack">
-                    {exp.techStack.map((tech, techIndex) => (
-                      <span key={techIndex} className="tech-badge">{tech}</span>
-                    ))}
-                  </div>
+                  {Array.isArray(exp.description) ? (
+                    <ul className="experience-description-list">
+                      {exp.description.map((desc, descIndex) => (
+                        <li key={descIndex}>{desc}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="experience-description">{exp.description}</p>
+                  )}
+                  {exp.techStack && exp.techStack.length > 0 && (
+                    <div className="tech-stack">
+                      {/* <strong><i className="fas fa-tools"></i> Tech Stack: </strong> */}
+                      {exp.techStack.map((tech, techIndex) => (
+                        <span key={techIndex} className="tech-badge">{tech}</span>
+                      ))}
+                    </div>
+                  )}
                   {index < experiences.length - 1 && <hr className="experience-divider" />}
                 </div>
               ))}
@@ -171,6 +293,22 @@ const About = () => {
                           <span key={techIndex} className="tech-tag">{tech}</span>
                         ))}
                       </div>
+                      {project.links && project.links.length > 0 && (
+                        <div className="project-links">
+                          {project.links.map((link, linkIndex) => (
+                            <a 
+                              key={linkIndex} 
+                              href={link.url} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="project-link"
+                            >
+                              <i className={link.icon}></i>
+                              <span>{link.name}</span>
+                            </a>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -212,27 +350,32 @@ const About = () => {
               <i className="fas fa-graduation-cap"></i> Education
             </h2>
             <div className="section-content">
-              <div className="education-item">
-                <h3 className="education-degree">Bachelor of Computer Science</h3>
-                <p className="education-institution">Faculty of Computers and Information</p>
-                <p className="education-status">Currently Studying</p>
-              </div>
+              {education.map((edu, index) => (
+                <div key={index} className="education-item">
+                  <h3 className="education-degree">{edu.degree}</h3>
+                  <p className="education-institution">{edu.institution}</p>
+                  {edu.field && <p className="education-field">{edu.field}</p>}
+                  <p className="education-period">{edu.period}</p>
+                  {edu.description && <p className="education-description">{edu.description}</p>}
+                  {index < education.length - 1 && <hr className="education-divider" />}
+                </div>
+              ))}
             </div>
           </section>
 
-          {/* Achievements Section */}
+          {/* Volunteering Section */}
           <section className="cv-section">
             <h2 className="section-title">
-              <i className="fas fa-trophy"></i> Achievements & Contributions
+              <i className="fas fa-hands-helping"></i> Volunteering
             </h2>
             <div className="section-content">
-              <ul className="achievements-list">
-                <li><i className="fas fa-check-circle"></i> Published NPM packages</li>
-                <li><i className="fas fa-check-circle"></i> Published mobile applications on Google Play Store</li>
-                <li><i className="fas fa-check-circle"></i> Published technical articles and blog posts</li>
-                <li><i className="fas fa-check-circle"></i> Created educational tech content on YouTube</li>
-                <li><i className="fas fa-check-circle"></i> Active open source contributor</li>
-              </ul>
+              {volunteering.map((vol, index) => (
+                <div key={index} className="volunteering-item">
+                  <h4 className="volunteering-title">{vol.title}</h4>
+                  <p className="volunteering-description">{vol.description}</p>
+                  {index < volunteering.length - 1 && <hr className="volunteering-divider" />}
+                </div>
+              ))}
             </div>
           </section>
         </div>
