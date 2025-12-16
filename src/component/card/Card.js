@@ -7,8 +7,7 @@ const Card = ({ data }) => {
   }
 
   return (
-    <div className="col-md-4">
-      <div className="blog-card blog-card-blog">
+    <div className="blog-card blog-card-blog">
         <div className="blog-card-image">
           <Link to={data.contentLink || '#'}>
             <img 
@@ -33,7 +32,6 @@ const Card = ({ data }) => {
           </h4>
         </div>
       </div>
-    </div>
   );
 }
 
