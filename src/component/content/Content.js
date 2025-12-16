@@ -2,45 +2,61 @@ import React, { useState, useEffect } from 'react'
 import './Content.css';
 import ReactMarkdown from 'react-markdown'
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
-// ![image info](https://upload.wikimedia.org/wikipedia/commons/3/3c/IMG_logo_%282017%29.svg)
-const Content = (props) => {
-  const history = useNavigate();
-
-  const [data, setData] = useState('# loading ...');
-  const [content, setContent] = useState(window.location.hash.split("/")[2]);
-  // console.log(useParams().content);
+const Content = () => {
+  const { content } = useParams();
+  const [data, setData] = useState('# Loading...');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-     setContent(window.location.hash.split("/")[2]);
-    // console.log(window.location.hash.split("/")[2]);
-    const contentLink = "https://raw.githubusercontent.com/mostafa-sultan/slums/main/data/images/md/" + content
+    if (!content) {
+      setError('No content specified');
+      setLoading(false);
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+    
+    const contentLink = `https://raw.githubusercontent.com/mostafa-sultan/slums/refs/heads/main/data/${content}`;
+    
     axios.get(contentLink)
       .then(function (response) {
         setData(String(response.data));
+        setLoading(false);
       })
       .catch(function (error) {
-        console.log(error);
-      }, [history]);
+        console.error('Error loading content:', error);
+        setError('Failed to load content. Please try again later.');
+        setData('# Error loading content');
+        setLoading(false);
+      });
+  }, [content]);
 
-    console.log("data2")
-
-  });
-  return (
-    <>
-
-      <div>
-        <ReactMarkdown>
-          {data}
-          {/* {data[0].cont} */}
-          {/* {row} */}
-        </ReactMarkdown>
-
+  if (loading) {
+    return (
+      <div className="content-loading">
+        <h2>Loading content...</h2>
       </div>
+    );
+  }
 
+  if (error) {
+    return (
+      <div className="content-error">
+        <h2>{error}</h2>
+      </div>
+    );
+  }
 
-    </>
+  return (
+    <div className="content-wrapper">
+      <ReactMarkdown className="markdown-content">
+        {data}
+      </ReactMarkdown>
+    </div>
   );
 }
 

@@ -1,165 +1,111 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { Link } from "react-router-dom";
-import { useParams } from "react-router";
 import Card from '../../component/card/Card';
 import Navbar from '../../component/navbar/Navbar';
 import './Home.css'
-// var data = require('https://raw.githubusercontent.com/mostafa-sultan/slums/main/data.json');
 import axios from 'axios';
 
 const CarsShow = (info) => {
+    if (!info || !Array.isArray(info)) {
+        return <h1>Loading...</h1>;
+    }
     return (
         info.map(data => (<Card key={data.id} data={data} />))
     )
 }
 
-const Home = (props) => {
-    const history = useNavigate();
-    const params = useParams();
-    const [cardData, setCardData] = useState(0);
-    // const [cardData, setCardData] = useState(data[0].category[params.category]);
+const Home = () => {
+    const location = useLocation();
+    const [cardData, setCardData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    // Extract category from pathname (remove leading slash)
+    const category = location.pathname.substring(1) || 'javascript';
 
     useEffect(() => {
-        console.log(window.location.hash.substring(2));
-        axios.get("https://raw.githubusercontent.com/mostafa-sultan/slums/main/data/images/md/data.json")
+        setLoading(true);
+        setError(null);
+        
+        axios.get("https://raw.githubusercontent.com/mostafa-sultan/slums/refs/heads/main/data/images/md/data.json")
             .then(function (response) {
-                console.log(response.data);
-                setCardData(response.data[0].category[window.location.hash.substring(2)]);
+                if (response.data && response.data[0] && response.data[0].category) {
+                    const categoryData = response.data[0].category[category];
+                    setCardData(categoryData || []);
+                } else {
+                    setError('Invalid data format');
+                }
+                setLoading(false);
             })
             .catch(function (error) {
-                console.log(error);
+                console.error('Error fetching data:', error);
+                setError('Failed to load content. Please try again later.');
+                setLoading(false);
             });
-        // setCardData(data[0].category[params.category])
-    }, [history]);
+    }, [category]);
     return (
         <>
             <Navbar />
             <section className="section">
                 <div className="container">
-                    <img className="item-container " src="/cover.png" alt="work-img" width="100%" style={{ objectFit: 'cover', borderRadius: '30%', height: '200px ' }} />
+                    <div className="cover-image-wrapper">
+                        <img 
+                            className="cover-image" 
+                            src="/cover.png" 
+                            alt="Blog Cover" 
+                        />
+                    </div>
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="text-center">
                                 <ul className="col container-filter portfolioFilte list-unstyled mb-0" id="filter">
-                                    {ActiveSec()}
+                                    <CategoryFilter currentCategory={category} />
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <h1>do your best</h1>
+                    <h1 className="section-heading">Explore My Technical Articles</h1>
                     <div className="row">
-                        {/* {cardData.map(data => (<Card key={data.id} data={data} />))} */}
-                        {cardData ? CarsShow(cardData) : <h1>Loding ...</h1>}
-                        {/* <Card name={"item"}/>
-                        <Card />  */}
-
-
+                        {loading && <div className="col-12 text-center"><h2>Loading...</h2></div>}
+                        {error && <div className="col-12 text-center"><h3 className="error-message">{error}</h3></div>}
+                        {!loading && !error && cardData && Array.isArray(cardData) && cardData.length > 0 && CarsShow(cardData)}
+                        {!loading && !error && cardData && Array.isArray(cardData) && cardData.length === 0 && (
+                            <div className="col-12 text-center">
+                                <h3>No articles found in this category.</h3>
+                            </div>
+                        )}
                     </div>
                 </div>
             </section>
-
-
-
-
         </>
     );
 }
+const CategoryFilter = ({ currentCategory }) => {
+    const categories = [
+        { path: '/javascript', label: 'JavaScript' },
+        { path: '/nodejs', label: 'Node.js' },
+        { path: '/react', label: 'React.js' },
+        { path: '/reactnative', label: 'React Native' },
+        { path: '/database', label: 'Database' },
+        { path: '/algorithms', label: 'Data Structures & Algorithms' },
+        { path: '/software', label: 'Software Topics' }
+    ];
 
-
-
-const ActiveSec = () => {
-    switch (window.location.hash.substring(2)) {
-        case "javascript":
-            return (
-                <>
-                    <li><Link className="categories active" to="/javascript">JavaScript</Link></li>
-                    <li><Link className="categories" to="/nodejs">NodeJs</Link></li>
-                    <li><Link className="categories" to="/react">ReactJs</Link></li>
-                    <li><Link className="categories" to="/reactnative">React Native</Link></li>
-                    <li><Link className="categories" to="/database">Database </Link></li>
-                    <li><Link className="categories" to="/algorithms">Data Structures&Algorithms</Link></li>
-                    <li><Link className="categories" to="/software">Software Randome Topics</Link></li>
-                </>
-            )
-
-        case "nodejs":
-            return (
-                <>
-                    <li><Link className="categories " to="/javascript">JavaScript</Link></li>
-                    <li><Link className="categories active" to="/nodejs">NodeJs</Link></li>
-                    <li><Link className="categories" to="/react">ReactJs</Link></li>
-                    <li><Link className="categories" to="/reactnative">React Native</Link></li>
-                    <li><Link className="categories" to="/database">Database </Link></li>
-                    <li><Link className="categories" to="/algorithms">Data Structures&Algorithms</Link></li>
-                    <li><Link className="categories" to="/software">Software Randome Topics</Link></li>
-                </>
-            )
-        case "react":
-            return (
-                <>
-                    <li><Link className="categories " to="/javascript">JavaScript</Link></li>
-                    <li><Link className="categories" to="/nodejs">NodeJs</Link></li>
-                    <li><Link className="categories active" to="/react">ReactJs</Link></li>
-                    <li><Link className="categories" to="/reactnative">React Native</Link></li>
-                    <li><Link className="categories" to="/database">Database </Link></li>
-                    <li><Link className="categories" to="/algorithms">Data Structures&Algorithms</Link></li>
-                    <li><Link className="categories" to="/software">Software Randome Topics</Link></li>
-                </>
-            )
-        case "reactnative":
-            return (
-                <>
-                    <li><Link className="categories  " to="/javascript">JavaScript</Link></li>
-                    <li><Link className="categories" to="/nodejs">NodeJs</Link></li>
-                    <li><Link className="categories" to="/react">ReactJs</Link></li>
-                    <li><Link className="categories active" to="/reactnative">React Native</Link></li>
-                    <li><Link className="categories" to="/database">Database </Link></li>
-                    <li><Link className="categories" to="/algorithms">Data Structures&Algorithms</Link></li>
-                    <li><Link className="categories" to="/software">Software Randome Topics</Link></li>
-                </>
-            )
-        case "database":
-            return (
-                <>
-                    <li><Link className="categories " to="/javascript">JavaScript</Link></li>
-                    <li><Link className="categories" to="/nodejs">NodeJs</Link></li>
-                    <li><Link className="categories" to="/react">ReactJs</Link></li>
-                    <li><Link className="categories" to="/reactnative">React Native</Link></li>
-                    <li><Link className="categories active" to="/database">Database </Link></li>
-                    <li><Link className="categories" to="/algorithms">Data Structures&Algorithms</Link></li>
-                    <li><Link className="categories" to="/software">Software Randome Topics</Link></li>
-                </>
-            )
-        case "algorithms":
-            return (
-                <>
-                    <li><Link className="categories " to="/javascript">JavaScript</Link></li>
-                    <li><Link className="categories" to="/nodejs">NodeJs</Link></li>
-                    <li><Link className="categories" to="/react">ReactJs</Link></li>
-                    <li><Link className="categories" to="/reactnative">React Native</Link></li>
-                    <li><Link className="categories" to="/database">Database </Link></li>
-                    <li><Link className="categories active" to="/algorithms">Data Structures&Algorithms</Link></li>
-                    <li><Link className="categories" to="/software">Software Randome Topics</Link></li>
-                </>
-            )
-        case "software":
-            return (
-                <>
-                    <li><Link className="categories " to="/javascript">JavaScript</Link></li>
-                    <li><Link className="categories" to="/nodejs">NodeJs</Link></li>
-                    <li><Link className="categories" to="/react">ReactJs</Link></li>
-                    <li><Link className="categories" to="/reactnative">React Native</Link></li>
-                    <li><Link className="categories" to="/database">Database </Link></li>
-                    <li><Link className="categories" to="/algorithms">Data Structures&Algorithms</Link></li>
-                    <li><Link className="categories active" to="/software">Software Randome Topics</Link></li>
-                </>
-            )
-
-        default:
-        // code block
-    }
-
-
+    return (
+        <>
+            {categories.map((cat) => (
+                <li key={cat.path}>
+                    <Link 
+                        className={`categories ${currentCategory === cat.path.substring(1) ? 'active' : ''}`} 
+                        to={cat.path}
+                    >
+                        {cat.label}
+                    </Link>
+                </li>
+            ))}
+        </>
+    );
 };
+
 export default Home;

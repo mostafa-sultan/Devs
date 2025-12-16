@@ -32,8 +32,7 @@ const Tutorial = () => {
     return (
         <>
             <Navbar />
-            <main className="container mt-9">
-                <br /> <br /> <br />
+            <main className="container tutorial-main">
                 <div className="row g-5 " id="content">
                     <div className="col-md-4 ">
                         <div className="position-sticky" style={{ top: '5rem' }}>

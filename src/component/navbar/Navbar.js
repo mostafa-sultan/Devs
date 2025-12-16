@@ -1,34 +1,101 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-{/* <Link to="/expenses">Expenses</Link> */ }
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from "react-router-dom";
+import './Navbar.css';
 
 export default function Navbar() {
-  return (
-    <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <Link className="navbar-brand" to="/">Devs</Link>
+  const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon" />
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 5);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const isActive = (path) => {
+    if (path === '/') {
+      return location.pathname === '/' || location.pathname === '/javascript';
+    }
+    return location.pathname === path;
+  };
+
+  const closeMenu = () => setMobileMenuOpen(false);
+
+  return (
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <div className="nav-container">
+        <Link to="/javascript" className="nav-logo" onClick={closeMenu}>
+          <i className="fas fa-code"></i>
+          <span>Devs</span>
+        </Link>
+
+        <button 
+          className={`nav-toggle ${mobileMenuOpen ? 'active' : ''}`}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarText">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
+
+        <div className="nav-menu-wrapper">
+          <ul className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
+            <li>
+              <Link 
+                to="/javascript" 
+                className={`nav-link ${isActive('/javascript') ? 'active' : ''}`}
+                onClick={closeMenu}
+              >
+                <i className="fas fa-home"></i>
+                <span>Home</span>
+              </Link>
             </li>
-            {/* <li className="nav-item">
-        <Link className="nav-link" to="/about">About</Link>
-      </li> */}
-            <li className="nav-item active">
-              <a className="nav-link" href="https://www.linkedin.com/in/mostafa-sultan/" target="_blank">Linkedin</a>
+            <li>
+              <Link 
+                to="/about" 
+                className={`nav-link ${isActive('/about') ? 'active' : ''}`}
+                onClick={closeMenu}
+              >
+                <i className="fas fa-user"></i>
+                <span>CV</span>
+              </Link>
             </li>
           </ul>
-
-          <Link to="/about">About</Link>
-
+          
+          <div className="nav-divider"></div>
+          
+          <ul className={`nav-menu nav-menu-social ${mobileMenuOpen ? 'active' : ''}`}>
+            <li>
+              <a 
+                href="https://www.linkedin.com/in/mostafa-sultan/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-link nav-link-social"
+                onClick={closeMenu}
+              >
+                <i className="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+              </a>
+            </li>
+            <li>
+              <a 
+                href="https://github.com/mostafa-sultan/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-link nav-link-social"
+                onClick={closeMenu}
+              >
+                <i className="fab fa-github"></i>
+                <span>GitHub</span>
+              </a>
+            </li>
+          </ul>
         </div>
-      </nav>
-
-    </>
+      </div>
+    </nav>
   );
 }

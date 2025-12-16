@@ -40,6 +40,11 @@ a:hover {
     color: rgb(214, 202, 202)
 }
 
+.tutorial-main {
+    margin-bottom: 40px;
+    padding-top: 80px;
+}
+
 .container {
     margin-bottom: 40px;
 }

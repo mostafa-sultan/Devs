@@ -1,0 +1,287 @@
+/* Navbar Base */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  padding: 0;
+  height: 64px;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 58px;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 8px 0;
+}
+
+.navbar.scrolled .nav-logo {
+  font-size: 1.1rem;
+  padding: 6px 0;
+}
+
+.nav-logo:hover {
+  color: #3498db;
+}
+
+.nav-logo i {
+  font-size: 1.2rem;
+  color: #3498db;
+}
+
+.navbar.scrolled .nav-logo i {
+  font-size: 1.1rem;
+}
+
+/* Navigation Menu Wrapper */
+.nav-menu-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* Navigation Menu */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav-menu-social {
+  gap: 6px;
+}
+
+/* Nav Divider */
+.nav-divider {
+  width: 1px;
+  height: 30px;
+  background: #e0e0e0;
+  margin: 0 5px;
+}
+
+.navbar.scrolled .nav-divider {
+  height: 25px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  color: #555;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-link-social {
+  padding: 8px 14px;
+  font-size: 0.9rem;
+}
+
+.navbar.scrolled .nav-link {
+  padding: 8px 14px;
+  font-size: 0.9rem;
+}
+
+.navbar.scrolled .nav-link-social {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.nav-link i {
+  font-size: 0.9rem;
+}
+
+.navbar.scrolled .nav-link i {
+  font-size: 0.85rem;
+}
+
+.nav-link:hover {
+  background: #f5f5f5;
+  color: #2c3e50;
+}
+
+.nav-link.active {
+  background: #3498db;
+  color: white;
+}
+
+.nav-link.active:hover {
+  background: #2980b9;
+}
+
+/* Mobile Toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.nav-toggle span {
+  width: 24px;
+  height: 2.5px;
+  background: #2c3e50;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Styles */
+@media (max-width: 991px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu-wrapper {
+    position: fixed;
+    top: 64px;
+    right: -100%;
+    width: 280px;
+    height: calc(100vh - 64px);
+    background: white;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 25px;
+    gap: 20px;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    justify-content: flex-start;
+  }
+
+  .nav-menu-wrapper.active {
+    right: 0;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .nav-menu-social {
+    gap: 10px;
+  }
+
+  .nav-divider {
+    width: 100%;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 10px 0;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 14px 18px;
+    justify-content: flex-start;
+    border-radius: 8px;
+  }
+
+  .nav-link-social {
+    padding: 14px 18px;
+  }
+
+  .navbar.scrolled .nav-link {
+    padding: 14px 18px;
+  }
+
+  .navbar.scrolled .nav-link-social {
+    padding: 14px 18px;
+  }
+
+  .nav-link.active {
+    background: #3498db;
+    color: white;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .navbar {
+    background: #1a1a1a;
+    border-bottom-color: #333;
+  }
+
+  .nav-logo {
+    color: #fff;
+  }
+
+  .nav-link {
+    color: #ccc;
+  }
+
+  .nav-link:hover {
+    background: #2a2a2a;
+    color: #fff;
+  }
+
+  .nav-toggle span {
+    background: #fff;
+  }
+
+  .nav-divider {
+    background: #333;
+  }
+
+  @media (max-width: 991px) {
+    .nav-menu-wrapper {
+      background: #1a1a1a;
+    }
+
+    .nav-divider {
+      background: #333;
+    }
+  }
+}
