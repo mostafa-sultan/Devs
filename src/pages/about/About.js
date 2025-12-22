@@ -33,6 +33,30 @@ const About = () => {
       techStack: ['React Native', 'JavaScript', 'Android', 'iOS', 'API Integration', 'Figma', 'Google Play', 'App Store']
     },
     {
+      title: 'Mobile Developer (React Native)',
+      company: 'Tech Village for Marketing Solutions',
+      period: 'Jun 2024 – Present',
+      type: 'Part Time',
+      description: [
+        'Contributed to the development of a consumer‑facing eCommerce mobile application with advanced visualization features.',
+        'Built scalable UI components and optimized user flows from product discovery to checkout.',
+        'Collaborated with cross‑functional teams to deliver a stable MVP focused on performance and usability.'
+      ],
+      techStack: ['React Native', 'JavaScript', 'REST APIs', 'Android', 'iOS']
+    },
+    {
+      title: 'Mobile Developer (React Native)',
+      company: 'Dracode – SuperQuick',
+      period: 'Apr 2024 – Jun 2024',
+      type: 'Freelance',
+      description: [
+        'Developed and delivered a mobile eCommerce application for food and grocery products.',
+        'Implemented core features including product listing, cart, and checkout.',
+        'Worked closely with the client to ensure timely delivery and production readiness.'
+      ],
+      techStack: ['React Native', 'JavaScript', 'REST APIs']
+    },
+    {
       title: 'Mobile Developer with React Native',
       company: 'Tjaara',
       period: 'Jan 2024 – Jul 2024',
